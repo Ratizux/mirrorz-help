@@ -127,15 +127,3 @@ yum-config-manager --add-repo https://download.docker.com/linux/{{yum_release}}/
 {{sudo}}yum install docker-ce
 ```
 </CodeBlock>
-
-## OpenMediaVault
-
-本节供 [OpenMediaVault 帮助](/OpenMediaVault/)使用。
-
-<CodeBlock>
-
-```bash
-omv-env set OMV_DOCKER_APT_REPOSITORY_URL "{{http_protocol}}{{mirror}}/linux/debian"
-```
-
-</CodeBlock>
