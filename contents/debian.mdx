@@ -87,18 +87,3 @@ deb {{http_protocol}}{{mirror}}/ {{release_name}} main contrib non-free{{has_nfw
 ```bash
 echo "Acquire::http::Pipeline-Depth \"0\";" > /etc/apt/apt.conf.d/99nopipelining
 ```
-
-## OpenMediaVault
-
-本节供 [OpenMediaVault 帮助](/OpenMediaVault/)使用。
-
-<CodeBlock>
-
-```bash
-omv-env set OMV_APT_KERNEL_BACKPORTS_REPOSITORY_URL "{{http_protocol}}{{mirror}}"
-omv-env set OMV_APT_SECURITY_REPOSITORY_URL "{{http_protocol}}{{mirror}}-security"
-```
-
-</CodeBlock>
-
-关于 debian-security 可以参考上文的说明。
