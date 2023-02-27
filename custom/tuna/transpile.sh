@@ -47,6 +47,7 @@ trap 'rm -rf -- "$CNAME_JSON_PATH"' EXIT
 curl -qo $CNAME_JSON_PATH $CNAME_JSON_URL
 
 declare -a TRANSPILE_LIST=(
+    "1970-01-01-archlinux.md"
     "1970-01-01-chef.md"
     "1970-01-01-debian.md"
     "1970-01-01-gitlab-ce.md"
