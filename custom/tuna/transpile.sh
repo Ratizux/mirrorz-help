@@ -63,6 +63,7 @@ declare -a TRANSPILE_LIST=(
     "1970-01-01-ubuntu-ports.md"
     "2016-06-19-virtualbox.md"
     "2019-02-15-grafana.md"
+    "2021-05-25-influxdata.md"
     "2022-01-07-erlang-solutions.md"
     "2022-07-23-llvm-apt.md"
     "2022-08-03-wine-builds.md"
