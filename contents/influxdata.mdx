@@ -42,8 +42,6 @@ deb {{http_protocol}}{{mirror}}/debian/ stable main
 
 ### CentOS / RedHat 用户
 
-#### TUNA/BFSU/NJU 等
-
 新建 `/etc/yum.repos.d/influxdata.repo`，内容为
 
 <CodeBlock
@@ -68,42 +66,4 @@ gpgcheck=1
 gpgkey=https://repos.influxdata.com/influxdata-archive_compat.key
 ```
 
-</CodeBlock>
-
-#### USTC
-
-新建 `/etc/yum.repos.d/influxdata.repo`，内容为
-
-<CodeBlock
-  enableQuickSetup
-  filepath="/etc/yum.repos.d/influxdata.repo"
->
-
-```ini
-[influxdata]
-name = InfluxData Repository - Stable
-baseurl = {{http_protocol}}{{mirror}}/stable/$basearch/main
-enabled = 1
-gpgcheck = 1
-gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
-```
-
-</CodeBlock>
-
-#### 共有部分
-
-再执行
-
-<CodeBlock>
-```bash
-{{sudo}}yum makecache
-```
-</CodeBlock>
-
-即可安装相关软件，如：
-
-<CodeBlock>
-```bash
-{{sudo}}yum install influxdb
-```
 </CodeBlock>
