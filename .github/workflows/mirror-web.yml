@@ -1,0 +1,16 @@
+name: Trigger mirror-web transpile
+on:
+  push:
+    branches: [tuna]
+
+jobs:
+  dispatch_forks:
+    runs-on: ubuntu-latest
+    if: github.repository == 'tuna/mirrorz-help'
+    steps:
+      - name: Send repository_dispatch to tuna/mirror-web
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT_PUBLIC_REPO_TUNA }}
+          repository: tuna/mirror-web
+          event-type: tuna-mirrorz-help-push
