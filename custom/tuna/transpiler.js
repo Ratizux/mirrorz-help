@@ -2,7 +2,7 @@ const { readFileSync } = require('fs');
 
 const FRONT_MATTER_REGEX = /---([\s\S]*?)---/;
 const FRONT_MATTER_TITLE_REGEX = /title: (.+)/;
-const CODEBLOCK_REGEX = /\<[\s\r\n]*?CodeBlock([\s\S]*?)\>[\s\S]*?```\w*[\r\n]([\s\S]*?)```[\s\S]*?\<\/CodeBlock\>/;
+const CODEBLOCK_REGEX = /\<[\s\r\n]*?CodeBlock([\s\S]*?)\>[\s\S]*?```(\w*)[\r\n]([\s\S]*?)```[\s\S]*?\<\/CodeBlock\>/;
 const MENU_REGEX = /menus={([\s\S]*)}/;
 
 function extract_front_matter(mdx) {
@@ -148,7 +148,7 @@ function tunaify_template(codeblock, content_index) {
 <script id="template-${content_index}" type="x-tmpl-markup">
 `;
   result += before;
-  result += codeblock[2];
+  result += codeblock[3];
   let after = `</script>
 {% endraw %}
 
@@ -163,9 +163,10 @@ function tunaify_target(codeblock, content_index, select_num) {
   for (let i = 0; i != select_num; ++i) {
     select_ids += `,#select-${content_index}-${i}`;
   }
+  let language = codeblock[2] === "" ? "plaintext" : codeblock[2];
   let result = `
 <pre>
-<code id="content-${content_index}" data-template="#template-${content_index}" data-select="#http-select,#sudo-select${select_ids}">
+<code id="content-${content_index}" class="language-${language}" data-template="#template-${content_index}" data-select="#http-select,#sudo-select${select_ids}">
 </code>
 </pre>`;
   return result;

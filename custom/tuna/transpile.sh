@@ -10,19 +10,19 @@ fi
 
 if ! command -v perl &> /dev/null
 then
-    echo "node could not be found"
+    echo "perl could not be found"
     exit 1
 fi
 
 if ! command -v jq &> /dev/null
 then
-    echo "node could not be found"
+    echo "jq could not be found"
     exit 1
 fi
 
 if ! command -v curl &> /dev/null
 then
-    echo "node could not be found"
+    echo "curl could not be found"
     exit 1
 fi
 
