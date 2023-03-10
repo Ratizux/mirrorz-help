@@ -162,6 +162,13 @@ declare -a TRANSPILE_LIST=(
     #"2023-01-30-netbsd.md"
     "2023-02-08-crates.io-index.md"
     "2023-03-10-nix-channels.md"
+    "2023-03-10-armbian.md"
+    "2023-03-10-blackarch.md"
+    "2023-03-10-clojars.md"
+    "2023-03-10-debian-multimedia.md"
+    "2023-03-10-eclipse.md"
+    "2023-03-10-kodi.md"
+    "2023-03-10-manjaro.md"
 )
 
 for md in "${TRANSPILE_LIST[@]}"; do
@@ -169,7 +176,7 @@ for md in "${TRANSPILE_LIST[@]}"; do
     # 'mirrorid: '.length == 10, then xargs to trim
     tuna_name=$(grep mirrorid $md | cut -c 11- | xargs)
     cname=$(jq ".\"${tuna_name}\"" $CNAME_JSON_PATH | tr -d '"')
-    if [[ $cname -eq "" ]]; then
+    if [ "$cname" = "null" ]; then
         cname=$tuna_name
     fi
     if [ -f "$MIRRORZ_HELP_CONTENT_PATH/$cname.mdx" ]; then
