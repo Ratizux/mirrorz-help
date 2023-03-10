@@ -127,7 +127,7 @@ declare -a TRANSPILE_LIST=(
     "2018-09-28-anthon.md"
     "2019-02-15-grafana.md"
     "2019-02-15-rustup.md"
-    #"2019-02-17-nix.md"
+    "2019-02-17-nix.md"
     "2019-02-25-dart-pub.md"
     #"2019-02-27-flutter.md"
     "2019-03-18-arch4edu.md"
@@ -161,6 +161,7 @@ declare -a TRANSPILE_LIST=(
     "2023-01-23-openbsd.md"
     #"2023-01-30-netbsd.md"
     "2023-02-08-crates.io-index.md"
+    "2023-03-10-nix-channels.md"
 )
 
 for md in "${TRANSPILE_LIST[@]}"; do
