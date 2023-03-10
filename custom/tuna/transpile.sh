@@ -41,7 +41,7 @@ fi
 
 CNAME_JSON_URL=${CNAME_JSON_URL:-"https://mirrorz.org/static/json/cname.json"}
 
-CNAME_JSON_PATH=$(mktemp $TMPDIR/cname.json.XXXXXX)
+CNAME_JSON_PATH=$(mktemp /tmp/cname.json.XXXXXX)
 trap 'rm -rf -- "$CNAME_JSON_PATH"' EXIT
 
 curl -qo $CNAME_JSON_PATH $CNAME_JSON_URL
